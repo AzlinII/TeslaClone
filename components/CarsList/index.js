@@ -6,8 +6,6 @@ import styles from "./styles";
 import cars from "./cars";
 
 const CarsList = (props) => {
-  console.log(cars);
-
   const renderCar = (data) => {
     // actual data in Flat list is in key "item"
     const { item } = data;
@@ -29,7 +27,7 @@ const CarsList = (props) => {
         renderItem={renderCar}
         snapToAlignment={"start"}
         decelerationRate={"fast"}
-        snapToInterval={Dimensions.get("screen").height}
+        snapToInterval={Dimensions.get("window").height}
         showsVerticalScrollIndicator={false}
       />
     </View>
