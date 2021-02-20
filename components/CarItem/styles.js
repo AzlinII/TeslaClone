@@ -1,9 +1,10 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, StatusBar } from "react-native";
 
 const styles = StyleSheet.create({
   carContainer: {
     width: "100%",
-    height: Dimensions.get("window").height,
+    // StatusBar.currentHeight will be 0 for ios.
+    height: Dimensions.get("window").height + StatusBar.currentHeight,
   },
   titles: {
     marginTop: "30%",

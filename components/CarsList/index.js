@@ -1,11 +1,13 @@
 import React from "react";
-import { View, Text, FlatList, Dimensions } from "react-native";
+import { View, FlatList, Dimensions, StatusBar } from "react-native";
 
 import CarItem from "../CarItem";
 import styles from "./styles";
 import cars from "./cars";
 
 const CarsList = (props) => {
+  console.log(StatusBar.currentHeight);
+
   const renderCar = (data) => {
     // actual data in Flat list is in key "item"
     const { item } = data;
@@ -27,7 +29,9 @@ const CarsList = (props) => {
         renderItem={renderCar}
         snapToAlignment={"start"}
         decelerationRate={"fast"}
-        snapToInterval={Dimensions.get("window").height}
+        snapToInterval={
+          Dimensions.get("window").height + StatusBar.currentHeight
+        }
         showsVerticalScrollIndicator={false}
       />
     </View>
